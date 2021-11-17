@@ -18,6 +18,7 @@ public class SpeedReader {
 				 DrawingPanel panel = new DrawingPanel(400, 300);
 				  Graphics g = panel.getGraphics();
 				  Font f = new Font("Courier", Font.BOLD, 20);
+				//Font l = new Font("Courier", Font.BOLD, 0);
 				  panel.setVisible(true); 
 
 				 // panel.setBackground(new Color(16));
