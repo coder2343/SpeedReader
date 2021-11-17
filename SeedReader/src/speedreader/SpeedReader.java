@@ -4,16 +4,23 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.io.FileNotFoundException;
 
-import javax.swing.text.StyleConstants.FontConstants;
 
 public class SpeedReader {
-	public void printStaggered(WordGenerator text) throws InterruptedException {
+	public void printStaggered(WordGenerator text, int secondSleep, DrawingPanel p, Graphics g) throws InterruptedException {
+		int secondsSpace = secondSleep *1000;
 		   while(text.hasNext()) {
-		     System.out.println(text.getNext());
-		     Thread.sleep(1000);
+			   g.drawString( text.getNext(), 100, 100);
+		     p.clear();
+		     Thread.sleep(secondsSpace);
+
 		   } // while
 		 } // printStaggered
+	
+	
+	// set up coamnd line arguments;Usage: SpeedReader <filename> <width> <height> <font size> <wpm>
+
 	public static void main(String[] args) throws FileNotFoundException {
+		//SpeedReader testeReader = new SpeedReader();
 		// drawing pannel
 				 DrawingPanel panel = new DrawingPanel(400, 300);
 				  Graphics g = panel.getGraphics();
@@ -23,22 +30,23 @@ public class SpeedReader {
 
 				 // panel.setBackground(new Color(16));
 				  g.setFont(f);
-
+				 
 				  
 				try {
-					SpeedReader testReader = new SpeedReader();
+					//SpeedReader testReader = new SpeedReader();
 					WordGenerator tester = new WordGenerator("PolishNewsArticle.txt");
 					while(tester.hasNext()) {
-						//  g.setFont(f);
-						g.drawString(tester.getNext(), 100, 70);	
-						 // g.setFont(l);
-
-					     Thread.sleep(1000);
-							panel.clear();
-
-
 					   } // while
+					//testReader.printStaggered(tester, 2,panel,g );
 					
+					  while(tester.hasNext()) { 
+						  g.setFont(f); g.drawString(tester.getNext(),
+					  100, 70); // g.setFont(l);
+					  
+					  Thread.sleep(1000); panel.clear(); }
+					  
+					  
+					 
 					
 					
 				} 
