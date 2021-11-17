@@ -18,7 +18,6 @@ public class SpeedReader {
 				 DrawingPanel panel = new DrawingPanel(400, 300);
 				  Graphics g = panel.getGraphics();
 				  Font f = new Font("Courier", Font.BOLD, 20);
-				  Font l = new Font("Courier", Font.BOLD, 0);
 				  panel.setVisible(true); 
 
 				 // panel.setBackground(new Color(16));
@@ -29,11 +28,13 @@ public class SpeedReader {
 					SpeedReader testReader = new SpeedReader();
 					WordGenerator tester = new WordGenerator("PolishNewsArticle.txt");
 					while(tester.hasNext()) {
-						  g.setFont(f);
+						//  g.setFont(f);
 						g.drawString(tester.getNext(), 100, 70);	
-						  g.setFont(l);
+						 // g.setFont(l);
 
 					     Thread.sleep(1000);
+							panel.clear();
+
 
 					   } // while
 					
