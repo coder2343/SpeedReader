@@ -68,12 +68,12 @@ public class SpeedReader {
 				try {
 					//SpeedReader testReader = new SpeedReader();
 					WordGenerator tester = new WordGenerator("PolishNewsArticle.txt");
-					//testReader.printStaggered(tester, 2,panel,g );
-					
-					  while(tester.hasNext()) { g.setFont(f); g.drawString(tester.getNext(),
-					  100, 70); // g.setFont(l);
-					  
-					  Thread.sleep(1000); panel.clear(); }
+					int wordsPerSecond = wpm/60;
+				
+					  while(tester.hasNext()) { 
+						  g.setFont(f); g.drawString(tester.getNext(),100, 70); // g.setFont(l);
+						  Thread.sleep(1000); panel.clear(); 
+						  }
 					  
 					  
 					 
