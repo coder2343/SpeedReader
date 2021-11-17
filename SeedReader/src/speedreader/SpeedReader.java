@@ -5,23 +5,19 @@ import java.awt.Graphics;
 import java.io.FileNotFoundException;
 
 
+/**
+ * @author walsl
+ *
+ */
 public class SpeedReader {
-	public void printStaggered(WordGenerator text, int secondSleep, DrawingPanel p, Graphics g) throws InterruptedException {
-		int secondsSpace = secondSleep *1000;
-		   while(text.hasNext()) {
-			   g.drawString( text.getNext(), 100, 100);
-		     p.clear();
-		     Thread.sleep(secondsSpace);
-
-		   } // while
-		 } // printStaggered
 	
 	
-	// set up coamnd line arguments;Usage: SpeedReader <filename> <width> <height> <font size> <wpm>
-
 	
-	//todo add comand line args
-	public static void main(String[] args) throws FileNotFoundException {
+	/**
+	 * @param args. Arugments supplied by comand line 
+	 * 
+	 */
+	public static void main(String[] args) {
 		//SpeedReader testeReader = new SpeedReader();
 		// drawing pannel
 		String fileName;
@@ -83,6 +79,21 @@ public class SpeedReader {
 				catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
+				} catch (FileNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
 				}
 	}
+	
+	
+	/*
+	 * this method does not really work. Just storing this in code for future idea
+	 * work on this later 
+	 * public void printStaggered(WordGenerator text, int secondSleep, DrawingPanel
+	 * p, Graphics g) throws InterruptedException { int secondsSpace = secondSleep
+	 * *1000; while(text.hasNext()) { g.drawString( text.getNext(), 100, 100);
+	 * p.clear(); Thread.sleep(secondsSpace);
+	 * 
+	 * } // while } // printStaggered
+	 */	
 }
