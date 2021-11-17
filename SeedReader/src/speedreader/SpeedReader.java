@@ -19,12 +19,45 @@ public class SpeedReader {
 	
 	// set up coamnd line arguments;Usage: SpeedReader <filename> <width> <height> <font size> <wpm>
 
+	
+	//todo add comand line args
 	public static void main(String[] args) throws FileNotFoundException {
 		//SpeedReader testeReader = new SpeedReader();
 		// drawing pannel
-				 DrawingPanel panel = new DrawingPanel(400, 300);
+		String fileName;
+		int width;
+		int hight;
+		int wpm;
+		int fontSize;
+		try {
+			fileName = args[0];
+			
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+			
+		}
+		try {
+			width = Integer.parseInt(args[1]);
+			hight = Integer.parseInt(args[2]);
+			fontSize = Integer.parseInt(args[3]);
+			wpm = Integer.parseInt(args[4]);
+
+
+		}
+		catch( NumberFormatException e) {
+			e.printStackTrace();
+			System.out.println("exiting proam had error");
+			width = 0;
+			hight = 0;
+			fontSize = 0;
+			wpm = 0;
+			
+		}
+	
+				 DrawingPanel panel = new DrawingPanel(width, hight);
 				  Graphics g = panel.getGraphics();
-				  Font f = new Font("Courier", Font.BOLD, 20);
+				  Font f = new Font("Courier", Font.BOLD, fontSize);
 				//Font l = new Font("Courier", Font.BOLD, 0);
 				  panel.setVisible(true); 
 
@@ -35,12 +68,9 @@ public class SpeedReader {
 				try {
 					//SpeedReader testReader = new SpeedReader();
 					WordGenerator tester = new WordGenerator("PolishNewsArticle.txt");
-					while(tester.hasNext()) {
-					   } // while
 					//testReader.printStaggered(tester, 2,panel,g );
 					
-					  while(tester.hasNext()) { 
-						  g.setFont(f); g.drawString(tester.getNext(),
+					  while(tester.hasNext()) { g.setFont(f); g.drawString(tester.getNext(),
 					  100, 70); // g.setFont(l);
 					  
 					  Thread.sleep(1000); panel.clear(); }
