@@ -8,14 +8,16 @@ import java.io.FileNotFoundException;
 /**
  * @author walsl
  *
+ * class that runs and executes Speed Reader class with comand line propmts supplied by  user.
  */
 public class SpeedReader {
-	
-	
-	
+
+
+
 	/**
-	 * @param args. Arugments supplied by comand line 
-	 * 
+	 * @param args. Arugments supplied by comand line  
+	 * Usage: SpeedReader <filename> <width> <height> <font size> <wpm>
+
 	 */
 	public static void main(String[] args) {
 		//SpeedReader testeReader = new SpeedReader();
@@ -27,11 +29,11 @@ public class SpeedReader {
 		int fontSize;
 		try {
 			fileName = args[0];
-			
+
 		}
 		catch(Exception e) {
 			e.printStackTrace();
-			
+
 		}
 		try {
 			width = Integer.parseInt(args[1]);
@@ -43,49 +45,48 @@ public class SpeedReader {
 		}
 		catch( NumberFormatException e) {
 			e.printStackTrace();
-			System.out.println("exiting proam had error");
+			System.out.println("exiting param had error");
 			width = 0;
 			hight = 0;
 			fontSize = 0;
 			wpm = 0;
-			
-		}
-	
-				 DrawingPanel panel = new DrawingPanel(width, hight);
-				  Graphics g = panel.getGraphics();
-				  Font f = new Font("Courier", Font.BOLD, fontSize);
-				//Font l = new Font("Courier", Font.BOLD, 0);
-				  panel.setVisible(true); 
 
-				 // panel.setBackground(new Color(16));
-				  g.setFont(f);
-				 
-				  
-				try {
-					//SpeedReader testReader = new SpeedReader();
-					WordGenerator tester = new WordGenerator("PolishNewsArticle.txt");
-					int wordsPerSecond = wpm/60;
-				
-					  while(tester.hasNext()) { 
-						  g.setFont(f); g.drawString(tester.getNext(),100, 70); // g.setFont(l);
-						  Thread.sleep(1000); panel.clear(); 
-						  }
-					  
-					  
-					 
-					
-					
-				} 
-				catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (FileNotFoundException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+		}
+
+		DrawingPanel panel = new DrawingPanel(width, hight);
+		Graphics g = panel.getGraphics();
+		Font f = new Font("Courier", Font.BOLD, fontSize);
+		panel.setVisible(true); 
+		g.setFont(f);
+
+
+		try {
+			WordGenerator tester = new WordGenerator("Dracula Opening Excerpt.txt");
+			int wordsPerSecond = (wpm/60);
+			double wordsReadPerSecond = (1/(double)wordsPerSecond);
+			int threadSleepTime = (int)(wordsReadPerSecond *1000);
+			System.out.println( threadSleepTime );
+			while(tester.hasNext()) { 
+				g.setFont(f); g.drawString(tester.getNext(),100, 70); // g.setFont(l);
+				Thread.sleep(threadSleepTime);
+				panel.clear(); 
+			}
+
+
+
+
+
+		} 
+		catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
-	
-	
+
+
 	/*
 	 * this method does not really work. Just storing this in code for future idea
 	 * work on this later 
