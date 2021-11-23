@@ -13,15 +13,16 @@ import java.io.FileNotFoundException;
 public class SpeedReader {
 
 
-
 	/**
 	 * @param args. Arugments supplied by comand line  
 	 * Usage: SpeedReader <filename> <width> <height> <font size> <wpm>
 
 	 */
 	public static void main(String[] args) {
-		//SpeedReader testeReader = new SpeedReader();
+		
 		// drawing pannel
+		
+		//TODO Add file name to code and peramitor
 		String fileName;
 		int width;
 		int hight;
@@ -72,16 +73,10 @@ public class SpeedReader {
 				panel.clear(); 
 			}
 
-
-
-
-
 		} 
 		catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
