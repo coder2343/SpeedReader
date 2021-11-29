@@ -23,7 +23,7 @@ public class SpeedReader {
 		// drawing pannel
 		
 		//TODO Add file name to code and peramitor
-		String fileName;
+		String fileName = null;
 		int width;
 		int hight;
 		int wpm;
@@ -51,6 +51,7 @@ public class SpeedReader {
 			hight = 0;
 			fontSize = 0;
 			wpm = 0;
+			fileName= "a";
 
 		}
 
@@ -62,7 +63,7 @@ public class SpeedReader {
 
 
 		try {
-			WordGenerator tester = new WordGenerator("Dracula Opening Excerpt.txt");
+			WordGenerator tester = new WordGenerator(fileName);
 			int wordsPerSecond = (wpm/60);
 			double wordsReadPerSecond = (1/(double)wordsPerSecond);
 			int threadSleepTime = (int)(wordsReadPerSecond *1000);
