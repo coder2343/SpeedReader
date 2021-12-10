@@ -9,6 +9,18 @@ import java.io.FileNotFoundException;
  * @author walsl
  *
  * class that runs and executes Speed Reader class with comand line propmts supplied by  user.
+ * 
+ * 
+ * Name(s) of all authors
+Assignment name Exra credit speed reader
+Assignment due date 11/29/21
+Written/online sources used: (enter "none" if no sources other than the textbook and course website used)
+none
+
+Help obtained: (enter "none" if no help was given outside of the class period. But if you consult an evening tutor, another student, or the course mentor during mentor sessions, add their names here)
+none
+Add the statement: "I confirm that the above list of sources is complete AND 
+that  Ihave not talked to anyone else (e.g., CSC 207 students) about the solution to this problem."
  */
 public class SpeedReader {
 
